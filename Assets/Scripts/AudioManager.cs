@@ -36,9 +36,12 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(AnimateCrossfade(fadeDuration));
     }
 
-    public void PlaySound(AudioClip clip, Vector3 pos)
+    public void PlaySound(AudioClip clip, Vector3 pos, float volume)
     {
-        AudioSource.PlayClipAtPoint(clip, pos, sfx * master);
+        if (volume == 1) {
+            volume = sfx * master;
+        }
+        AudioSource.PlayClipAtPoint(clip, pos, volume);
     }
 
     IEnumerator AnimateCrossfade(float duration)

@@ -7,6 +7,6 @@ public class SpawnSound : MonoBehaviour {
     public AudioClip[] spawnSounds;
 
 	void Start () {
-        AudioManager.instance.PlaySound(spawnSounds[Random.Range(0, (spawnSounds.Length - 1))], transform.position);
+        AudioManager.instance.PlaySound(spawnSounds[Random.Range(0, (spawnSounds.Length - 1))], transform.position, 1);
 	}
 }

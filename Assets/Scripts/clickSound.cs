@@ -7,7 +7,7 @@ public class clickSound : MonoBehaviour {
     public AudioClip selectSound;
 
     public void Play() {
-        AudioManager.instance.PlaySound(selectSound, Camera.main.transform.position);
+        AudioManager.instance.PlaySound(selectSound, Camera.main.transform.position, 0.2f);
     }   
 
 }
