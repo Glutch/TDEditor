@@ -5,11 +5,21 @@ public class TileManager : MonoBehaviour{
 
     public Transform hover;
     public GameObject buildParticles;
+    public GameObject destroyParticles;
     private GameObject currentBuilding;
+    private Vector3 rot;
 
     void OnMouseDown(){
         if (currentBuilding != null) {
-            Debug.Log("Can't build there!");
+            if(Input.GetKey("r")){
+                currentBuilding.transform.Rotate(Vector3.forward, 90);
+            }
+            if(Input.GetKey("x")){
+                Destroy(currentBuilding);
+                GameObject destroyEffect = (GameObject)Instantiate(destroyParticles, transform.position, transform.rotation);
+                Destroy(destroyEffect, 3f);
+            }
+            Debug.Log("Rotate");
             return;
         }
         Build();

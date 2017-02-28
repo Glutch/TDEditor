@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour{
     {
 
 
-        if (Input.GetKeyDown("x"))
+        if (Input.GetKeyDown("z"))
         {
             cameraControlsActive = !cameraControlsActive;
         }
@@ -64,14 +64,21 @@ public class CameraController : MonoBehaviour{
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        Vector3 pos = transform.position;
+        Vector3 newPos = transform.position;
 
-        pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
-        pos.y = Mathf.Clamp(pos.y, minY, maxY);
-        pos.x = Mathf.Clamp(pos.x, minX, maxX);
-        pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
+        newPos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
+        newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
+        newPos.x = Mathf.Clamp(newPos.x, minX, maxX);
+        newPos.z = Mathf.Clamp(newPos.z, minZ, maxZ);
 
-        transform.position = pos;
+        if(scroll != 0){
+            smoothScroll(newPos);
+        }
 
+    }
+
+    private void smoothScroll(Vector3 newPos){
+        Vector3 currentPos = transform.position;
+        transform.position = Vector3.Lerp(currentPos, newPos, Time.deltaTime * 2);
     }
 }

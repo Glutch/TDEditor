@@ -6,6 +6,8 @@ public class ItemSelector : MonoBehaviour {
 
     public GameObject forest;
     public GameObject thing;
+    public GameObject normalRoad;
+    public GameObject turnRoad;
 
     //Build items
     public void BuildForest()
@@ -16,5 +18,15 @@ public class ItemSelector : MonoBehaviour {
     public void BuildThing()
     {
         BuildManager.instance.SetThingToBuild(thing);
+    }
+
+    public void BuildNormalRoad()
+    {
+        BuildManager.instance.SetThingToBuild(normalRoad);
+    }
+
+    public void BuildTurnRoad()
+    {
+        BuildManager.instance.SetThingToBuild(turnRoad);
     }
 }
