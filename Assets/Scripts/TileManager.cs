@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 public class TileManager : MonoBehaviour{
 
@@ -23,6 +25,14 @@ public class TileManager : MonoBehaviour{
             return;
         }
         Build();
+    }
+
+    private void CheckRoute(List<Vector3> list)
+    {
+        if (list.Count < 1 || list == null)
+        {
+            //something
+        }
     }
 
     void Build() {

@@ -75,11 +75,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\AI.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\GridPlayer.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\GridPlayer2D.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\Lines.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\SearchPlayerAI.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\SetGrid.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\SimpleAI.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\SimpleAI2D.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\TDEnemy.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\TDManager.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scenes\Scripts\WaypointPlayer.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\DynamicMapUpdate.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\DynamicTDGridObject.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\Node.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\NodeSearch.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\Pathfinder.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\Pathfinder2D.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\Pathfinding.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\Pathfinding2D.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\QueuePath.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\WaypointListNode.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\WaypointNode.cs" />
+    <Compile Include="Assets\Imports\Pathfinding\Scripts\WaypointPathfinder.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\BuildManager.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\ItemSelector.cs" />
     <Compile Include="Assets\Scripts\MapGenerator.cs" />
+    <Compile Include="Assets\Scripts\SparkParticles.cs" />
     <Compile Include="Assets\Scripts\SpawnSound.cs" />
     <Compile Include="Assets\Scripts\TileManager.cs" />
     <Compile Include="Assets\Scripts\clickSound.cs" />

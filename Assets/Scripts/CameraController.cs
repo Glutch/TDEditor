@@ -79,6 +79,6 @@ public class CameraController : MonoBehaviour{
 
     private void smoothScroll(Vector3 newPos){
         Vector3 currentPos = transform.position;
-        transform.position = Vector3.Lerp(currentPos, newPos, Time.deltaTime * 2);
+        transform.position = Vector3.Lerp(currentPos, newPos, Time.deltaTime * 50);
     }
 }
