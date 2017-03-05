@@ -10,6 +10,9 @@ public class TDManager : MonoBehaviour
     public GameObject ghostTower;
     public GameObject enemy;
 
+    private static TDManager instance;
+    public static TDManager Instance { get { return instance; } private set { } }
+
     private List<GameObject> towers = new List<GameObject>();
 
     void Start()
@@ -85,8 +88,8 @@ public class TDManager : MonoBehaviour
     {     
         //If we get a list that is empty there is no path, and we blocked the road
         //Then remove the last added tower!
-        if (list.Count < 1 || list == null)
-        {
+        if (list.Count < 1 || list == null){
+            Debug.Log("works");
             if (towers.Count > 0)
             {
                 GameObject g = towers[towers.Count - 1];

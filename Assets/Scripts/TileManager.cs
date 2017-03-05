@@ -10,6 +10,14 @@ public class TileManager : MonoBehaviour{
     public GameObject destroyParticles;
     private GameObject currentBuilding;
     private Vector3 rot;
+    public GameObject start;
+    public GameObject end;
+
+    private void Start()
+    {
+        start = GameObject.Find("Start");
+        end = GameObject.Find("End");
+    }
 
     void OnMouseDown(){
         if (currentBuilding != null) {
@@ -27,21 +35,30 @@ public class TileManager : MonoBehaviour{
         Build();
     }
 
-    private void CheckRoute(List<Vector3> list)
-    {
-        if (list.Count < 1 || list == null)
-        {
-            //something
-        }
-    }
+    
 
     void Build() {
         if (EventSystem.current.IsPointerOverGameObject())
             return;
+
         GameObject thingToBuild = BuildManager.instance.GetThingToBuild();
         currentBuilding = (GameObject)Instantiate(thingToBuild, transform.position, transform.rotation);
-        GameObject buildEffect = (GameObject)Instantiate(buildParticles, transform.position, transform.rotation);
-        Destroy(buildEffect, 3f);
+        //GameObject buildEffect = (GameObject)Instantiate(buildParticles, transform.position, transform.rotation);
+        //Destroy(buildEffect, 3f);
+        StartCoroutine(CheckPath());
+    }
+
+    IEnumerator CheckPath() {
+        yield return new WaitForSeconds(0.05f);
+        Pathfinder.Instance.InsertInQueue(start.transform.position, end.transform.position, CheckRoute);
+    }
+
+    private void CheckRoute(List<Vector3> list){
+        Debug.Log(list.Count);
+        if (list.Count < 1 || list == null){
+            Debug.Log("Path blocked!");
+            Destroy(currentBuilding);
+        }
     }
 
     void OnMouseEnter(){

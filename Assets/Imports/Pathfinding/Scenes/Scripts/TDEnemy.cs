@@ -6,10 +6,21 @@ public class TDEnemy : Pathfinding
     public Vector3 start = Vector3.zero;
     public Vector3 end = Vector3.zero;
 
+    //oliver
+    public float movespeed;
+    public float turnRate;
+
     private bool pathMover = true;
     private bool newPath = true;
-	
-	void Update () 
+
+    private void Awake()
+    {
+        //oliver
+        start = GameObject.Find("Start").transform.position;
+        end = GameObject.Find("End").transform.position;
+    }
+
+    void Update () 
     {
         if (transform.position.x < 10.2F)
         {
@@ -57,7 +68,9 @@ public class TDEnemy : Pathfinding
                 {
                    // direction = (end - transform.position).normalized;
                 }
-                transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, Time.deltaTime * 4F);
+                transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, Time.deltaTime * movespeed);
+                var look = Quaternion.LookRotation(direction.normalized);
+                transform.rotation = Quaternion.Slerp(transform.rotation, look, Time.deltaTime * turnRate);
             }
         }
     }
